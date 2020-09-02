@@ -141,7 +141,25 @@ for player_turn in 1..9
 
       player_turn += 1
     end
-    
+
   end
 
 end
+
+#Game scores
+puts "\n\n\n"
+
+puts "                Good job, #{player_1}"
+puts "                     You won!"
+
+#Replay Game
+puts "                     Play Again!"
+puts "                     Enter \'Y\' to Play Again!"
+
+repeat_game = gets.strip
+
+puts "                     Ok, let play a new game!"
+
+#End
+
+
