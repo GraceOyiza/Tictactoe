@@ -71,3 +71,29 @@ print "         \n"
 print "#{ start_msg }\n"
 start_game = gets.strip.downcase
 sleep(1)
+
+#puts " testing #{start_game}"
+if start_game == 's' || start_game == 'S'
+    puts "               OK, let\'s Play!\n\n\n"
+  end
+  
+  #Player details:
+  #Player 1
+  sleep(2)
+  puts '           Player 1, enter your name'
+  player_1 = gets.strip.capitalize!
+  sleep(1)
+  puts "              #{player_1}, ready to go!\n\n\n"
+  
+  #Player 2
+  sleep(2)
+  puts '           Player 2, enter your name'
+  player_2 = gets.strip.capitalize!
+  sleep(1)
+  puts "              #{player_2}, ready to go!\n\n\n"
+  
+  sleep(3)
+  puts "            Great! #{player_1} and #{player_2}"
+  sleep(2)
+  puts "                 Let's do it!\n\n\n"
+  
