@@ -124,5 +124,24 @@ for player_turn in 1..9
 
       player_turn += 1
     end
+
+  elsif player_turn.even?
+    puts "              #{player_2}, Your turn!"
+    $board_input = gets.chomp.to_i
+    puts "You chose cell #{$board_input}"
+
+    if $board[$board_input -1].empty? || !$board[$board_input -1].nil?
+      $board[$board_input - 1] = 'O'
+
+      print $board
+
+      puts ''
+
+      board_choice_display
+
+      player_turn += 1
+    end
+    
   end
+
 end
