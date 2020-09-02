@@ -106,4 +106,9 @@ if start_game == 's' || start_game == 'S'
 #Game play logic
 
 for player_turn in 1..9
+  # Player toggle check
+  if player_turn.odd?
+    puts "              #{player_1}, Your turn!"
+    $board_input = gets.chomp.to_i
+    puts "You chose cell #{$board_input}"
 end
