@@ -97,3 +97,9 @@ if start_game == 's' || start_game == 'S'
   sleep(2)
   puts "                 Let's do it!\n\n\n"
   
+  sleep(4)
+  puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
+  active_board
+  puts ''
+  sleep(4)
+
