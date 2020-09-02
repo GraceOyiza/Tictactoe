@@ -53,3 +53,21 @@ puts ''
 display_demo_board
 puts ''
 puts "          Built by Robert and Grace\n\n\n"
+
+#Start Game
+sleep(2)
+
+puts start_msg = "           Press \'S\' to start!"
+
+2.times do
+  print "\r#{ start_msg }"
+  sleep 0.5
+  print "\r#{ ' ' * start_msg.size }   "
+  sleep 0.5
+end
+
+
+print "         \n"
+print "#{ start_msg }\n"
+start_game = gets.strip.downcase
+sleep(1)
