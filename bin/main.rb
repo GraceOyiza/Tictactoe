@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 puts 'Hello World'
 
-#welcome screen
-#Board Cells
+# Welcome screen
+# Board Cells
 $c1 = 1
 $c2 = 2
 $c3 = 3
@@ -13,18 +13,16 @@ $c7 = 7
 $c8 = 8
 $c9 = 9
 
-
-$board = [" "," "," "," "," "," "," "," "," "]
-
+$board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
 def active_board
-puts "             .-----.-----.-----."
-puts "             |  #{ $c1 }  |  #{$c2}  |  #{$c3}  |"
-puts "             .-----+-----+-----."
-puts "             |  #{$c4}  |  #{$c5}  |  #{$c6}  |"
-puts "             .-----+-----+-----."
-puts "             |  #{$c7}  |  #{$c8}  |  #{$c9}  |"
-puts "             .-----.-----.-----."
+  puts "             .-----.-----.-----."
+  puts "             |  #{$c1}  |  #{$c2}  |  #{$c3}  |"
+  puts "             .-----+-----+-----."
+  puts "             |  #{$c4}  |  #{$c5}  |  #{$c6}  |"
+  puts "             .-----+-----+-----."
+  puts "             |  #{$c7}  |  #{$c8}  |  #{$c9}  |"
+  puts "             .-----.-----.-----."
 end
 
 def board_choice_display
@@ -54,56 +52,55 @@ display_demo_board
 puts ''
 puts "          Built by Robert and Grace\n\n\n"
 
-#Start Game
+# Start Game
 sleep(2)
 
 puts start_msg = "           Press \'S\' to start!"
 
 2.times do
-  print "\r#{ start_msg }"
+  print "\r#{start_msg}"
   sleep 0.5
-  print "\r#{ ' ' * start_msg.size }   "
+  print "\r#{' ' * start_msg.size}   "
   sleep 0.5
 end
 
-
 print "         \n"
-print "#{ start_msg }\n"
+print "#{start_msg}\n"
 start_game = gets.strip.downcase
 sleep(1)
 
-#puts " testing #{start_game}"
+# puts " testing #{start_game}"
 if start_game == 's' || start_game == 'S'
-    puts "               OK, let\'s Play!\n\n\n"
-  end
-  
-  #Player details:
-  #Player 1
-  sleep(2)
-  puts '           Player 1, enter your name'
-  player_1 = gets.strip.capitalize!
-  sleep(1)
-  puts "              #{player_1}, ready to go!\n\n\n"
-  
-  #Player 2
-  sleep(2)
-  puts '           Player 2, enter your name'
-  player_2 = gets.strip.capitalize!
-  sleep(1)
-  puts "              #{player_2}, ready to go!\n\n\n"
-  
-  sleep(3)
-  puts "            Great! #{player_1} and #{player_2}"
-  sleep(2)
-  puts "                 Let's do it!\n\n\n"
-  
-  sleep(4)
-  puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
-  active_board
-  puts ''
-  sleep(4)
+  puts "               OK, let\'s Play!\n\n\n"
+end
 
-#Game play logic
+# Player details:
+# Player 1
+sleep(2)
+puts '           Player 1, enter your name'
+player_1 = gets.strip.capitalize!
+sleep(1)
+puts "              #{player_1}, ready to go!\n\n\n"
+
+# Player 2
+sleep(2)
+puts '           Player 2, enter your name'
+player_2 = gets.strip.capitalize!
+sleep(1)
+puts "              #{player_2}, ready to go!\n\n\n"
+
+sleep(3)
+puts "            Great! #{player_1} and #{player_2}"
+sleep(2)
+puts "                 Let's do it!\n\n\n"
+
+sleep(4)
+puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
+active_board
+puts ''
+sleep(4)
+
+# Game play logic
 
 for player_turn in 1..9
   # Player toggle check
@@ -112,10 +109,10 @@ for player_turn in 1..9
     $board_input = gets.chomp.to_i
     puts "You chose cell #{$board_input}"
 
-    # Check if position on board is empty 
-    if $board[$board_input -1].empty? || !$board[$board_input -1].nil?
+    # Check if position on board is empty
+    if $board[$board_input - 1].empty? || !$board[$board_input - 1].nil?
       $board[$board_input - 1] = 'X'
-      #instance_variable_set("c#{$board_input}", index_val)
+      # instance_variable_set("c#{$board_input}", index_val)
       print $board
 
       puts ''
@@ -130,7 +127,7 @@ for player_turn in 1..9
     $board_input = gets.chomp.to_i
     puts "You chose cell #{$board_input}"
 
-    if $board[$board_input -1].empty? || !$board[$board_input -1].nil?
+    if $board[$board_input - 1].empty? || !$board[$board_input - 1].nil?
       $board[$board_input - 1] = 'O'
 
       print $board
@@ -146,13 +143,13 @@ for player_turn in 1..9
 
 end
 
-#Game scores
+# Game scores
 puts "\n\n\n"
 
 puts "                Good job, #{player_1}"
 puts "                     You won!"
 
-#Replay Game
+# Replay Game
 puts "                     Play Again!"
 puts "                     Enter \'Y\' to Play Again!"
 
@@ -160,6 +157,4 @@ repeat_game = gets.strip
 
 puts "                     Ok, let play a new game!"
 
-#End
-
-
+# End
