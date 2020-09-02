@@ -46,3 +46,10 @@ def display_demo_board
   puts "             |  X  |  O  |     |"
   puts "             .-----.-----.-----."
 end
+
+puts "\n\n"
+puts '           Welcome,  TiC TaC To\'eR!'
+puts ''
+display_demo_board
+puts ''
+puts "          Built by Robert and Grace\n\n\n"
