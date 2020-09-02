@@ -111,4 +111,5 @@ for player_turn in 1..9
     puts "              #{player_1}, Your turn!"
     $board_input = gets.chomp.to_i
     puts "You chose cell #{$board_input}"
+  end
 end
