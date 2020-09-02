@@ -103,3 +103,7 @@ if start_game == 's' || start_game == 'S'
   puts ''
   sleep(4)
 
+#Game play logic
+
+for player_turn in 1..9
+end
