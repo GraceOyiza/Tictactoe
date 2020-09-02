@@ -111,5 +111,18 @@ for player_turn in 1..9
     puts "              #{player_1}, Your turn!"
     $board_input = gets.chomp.to_i
     puts "You chose cell #{$board_input}"
+
+    # Check if position on board is empty 
+    if $board[$board_input -1].empty? || !$board[$board_input -1].nil?
+      $board[$board_input - 1] = 'X'
+      #instance_variable_set("c#{$board_input}", index_val)
+      print $board
+
+      puts ''
+
+      board_choice_display
+
+      player_turn += 1
+    end
   end
 end
