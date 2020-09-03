@@ -15,6 +15,10 @@ $c9 = 9
 
 $board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
+$player_turn = 1
+
+$random_win = nil?
+
 def active_board
   puts "             .-----.-----.-----."
   puts "             |  #{$c1}  |  #{$c2}  |  #{$c3}  |"
@@ -52,109 +56,107 @@ display_demo_board
 puts ''
 puts "          Built by Robert and Grace\n\n\n"
 
-# Start Game
 sleep(2)
-
-puts start_msg = "           Press \'S\' to start!"
+start_msg = "            Press \'S\' to start!" # Start Game
 
 2.times do
-  print "\r#{start_msg}"
+  print "\r#{ start_msg }"
   sleep 0.5
-  print "\r#{' ' * start_msg.size}   "
+  print "\r#{ ' ' * start_msg.size }"
   sleep 0.5
 end
 
-print "         \n"
-print "#{start_msg}\n"
+print "\n"
+puts "#{start_msg}"
 start_game = gets.strip.downcase
 sleep(1)
 
-# puts " testing #{start_game}"
-if start_game == 's' || start_game == 'S'
-  puts "               OK, let\'s Play!\n\n\n"
+if start_game == 's'
+  puts "             OK, let\'s Play!\n\n\n"
 end
 
-# Player details:
-# Player 1
-sleep(2)
-puts '           Player 1, enter your name'
-player_1 = gets.strip.capitalize!
 sleep(1)
-puts "              #{player_1}, ready to go!\n\n\n"
-
-# Player 2
-sleep(2)
-puts '           Player 2, enter your name'
-player_2 = gets.strip.capitalize!
+puts '           Player 1, enter your name' # Player 1
+$player_1 = gets.strip.capitalize!
 sleep(1)
-puts "              #{player_2}, ready to go!\n\n\n"
+puts "              #{$player_1}, ready to go!\n\n\n"
 
-sleep(3)
-puts "            Great! #{player_1} and #{player_2}"
-sleep(2)
+sleep(1)
+puts '           Player 2, enter your name' # Player 2
+$player_2 = gets.strip.capitalize!
+sleep(1)
+puts "              #{$player_2}, ready to go!\n\n\n"
+
+sleep(1)
+puts "            Great! #{$player_1} and #{$player_2}"
+sleep(1)
 puts "                 Let's do it!\n\n\n"
 
-sleep(4)
+sleep(2)
 puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
 active_board
-puts ''
-sleep(4)
+puts "\n\n"
+sleep(2)
 
-# Game play logic
+def player_1_turn
+  $board_input = nil?
+  $board_input = gets.chomp.to_i
+  puts "You chose cell #{$board_input}"
+  if $board[$board_input - 1] == ' '
+    $board[$board_input - 1] = 'X'
+    puts ''
+    board_choice_display
+    #check if win is 'true' return
+    $player_turn += 1
+  else
+    puts "             Cell is already chosen\n Choose an empty cell\n"
+    player_1_turn
+  end
+end
 
-for player_turn in 1..9
-  # Player toggle check
-  if player_turn.odd?
-    puts "              #{player_1}, Your turn!"
-    $board_input = gets.chomp.to_i
-    puts "You chose cell #{$board_input}"
+def player_2_turn
+  $board_input = nil?
+  $board_input = gets.chomp.to_i
+  puts "You chose cell #{$board_input}"
+  if $board[$board_input - 1] == ' '
+    $board[$board_input - 1] = 'O'
+    puts ''
+    board_choice_display
+    #check if win is 'true' return
+    $player_turn += 1
+  else
+    puts "             Cell is already chosen\n Choose an empty cell\n"
+    player_2_turn
+  end
+end
 
-    # Check if position on board is empty
-    if $board[$board_input - 1].empty? || !$board[$board_input - 1].nil?
-      $board[$board_input - 1] = 'X'
-      # instance_variable_set("c#{$board_input}", index_val)
-      print $board
+def toggle_player_turn
 
-      puts ''
-
-      board_choice_display
-
-      player_turn += 1
-    end
-
-  elsif player_turn.even?
-    puts "              #{player_2}, Your turn!"
-    $board_input = gets.chomp.to_i
-    puts "You chose cell #{$board_input}"
-
-    if $board[$board_input - 1].empty? || !$board[$board_input - 1].nil?
-      $board[$board_input - 1] = 'O'
-
-      print $board
-
-      puts ''
-
-      board_choice_display
-
-      player_turn += 1
-    end
-
+  if $player_turn.odd?
+    puts "\n\n"
+    puts "              #{$player_1}, Your turn!"
+    self.player_1_turn
+  elsif $player_turn.even?
+    puts "\n\n"
+    puts "              #{$player_2}, Your turn!"
+    self.player_2_turn
+  elsif $player_turn == 10
+    print 'results'
   end
 
 end
 
-# Game scores
-puts "\n\n\n"
+while $player_turn < 10
+  toggle_player_turn
+end
+  
+$random_win = rand 3
 
-puts "                Good job, #{player_1}"
-puts "                     You won!"
-
-# Replay Game
-puts "                     Play Again!"
-puts "                     Enter \'Y\' to Play Again!"
-
-repeat_game = gets.strip
-
-puts "                     Ok, let play a new game!"
-
-# End
+case $random_win
+when 1
+  puts "Good job  #{$player_1}, \n You won!!!"
+when 2
+  puts "Good job, #{$player_2}, \n You won!!!"
+else
+  puts "It's a draw"
+end

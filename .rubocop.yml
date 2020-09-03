@@ -58,3 +58,5 @@ Lint/ScriptPermission:
   Enabled: false
 Style/GlobalVars:
   Enabled: false
+Style/StringLiterals:
+  Enabled: false
