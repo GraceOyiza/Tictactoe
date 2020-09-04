@@ -57,9 +57,9 @@ sleep(2)
 start_msg = "            Press \'S\' to start!" # Start Game
 
 2.times do
-  print "\r#{ start_msg }"
+  print "\r#{start_msg}"
   sleep 0.5
-  print "\r#{ ' ' * start_msg.size }"
+  print "\r#{' ' * start_msg.size}"
   sleep 0.5
 end
 
@@ -99,11 +99,11 @@ def player_1_turn
   $board_input = nil?
   $board_input = gets.chomp.to_i
   puts "You chose cell #{$board_input}"
-  if $board[$board_input - 1] == ' ' 
+  if $board[$board_input - 1] == ' '
     $board[$board_input - 1] = 'X' # insert position
     puts ''
     board_choice_display
-    #check if win is 'true' return
+    # check if win is 'true' return
     $player_turn += 1
   else
     puts "             Cell is already chosen\n Choose an empty cell\n"
@@ -119,7 +119,7 @@ def player_2_turn
     $board[$board_input - 1] = 'O'
     puts ''
     board_choice_display
-    #check if win is 'true' return
+    # check if win is 'true' return
     $player_turn += 1
   else
     puts "             Cell is already chosen\n Choose an empty cell\n"
@@ -128,7 +128,6 @@ def player_2_turn
 end
 
 def toggle_player_turn
-
   if $player_turn.odd?
     puts "\n\n"
     puts "              #{$player_1}, Your turn!"
@@ -140,23 +139,21 @@ def toggle_player_turn
   elsif $player_turn == 10
     print 'results'
   end
-
 end
 
 while $player_turn < 10
   toggle_player_turn
 end
-  
+
 $random_win = rand 3
 
 case $random_win
 when 1
-  puts "\n\n\n"
-  puts "              Good job  #{$player_1}, \n You won!!!"
+  puts '\n\n\n            Good job,  #{$player_1}'
+  puts '                 You won!!!'
 when 2
-  puts "\n\n\n"
-  puts "              Good job, #{$player_2}, \n You won!!!"
+  puts '\n\n\n            Good job, #{$player_2}'
+  puts '                 You won!!!'
 else
-  puts "\n\n\n"
-  puts "         It's a draw"
+  puts '\n\n\n         It\'s a draw'
 end

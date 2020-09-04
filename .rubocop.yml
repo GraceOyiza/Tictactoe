@@ -58,3 +58,7 @@ Lint/ScriptPermission:
   Enabled: false
 Style/GlobalVars:
   Enabled: false
+Style/WhileUntilModifier:
+  Enabled: false
+
+ 
