@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
-puts 'Hello World'
 
-# Welcome screen
-# Board Cells
-$c1 = 1
+$c1 = 1 # Board Cells
 $c2 = 2
 $c3 = 3
 $c4 = 4
@@ -14,6 +11,10 @@ $c8 = 8
 $c9 = 9
 
 $board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+
+$player_turn = 1
+
+$random_win = nil?
 
 def active_board
   puts "             .-----.-----.-----."
