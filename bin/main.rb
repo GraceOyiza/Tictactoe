@@ -53,35 +53,30 @@ display_demo_board
 puts ''
 puts "          Built by Robert and Grace\n\n\n"
 
-# Start Game
 sleep(2)
-
-puts start_msg = "           Press \'S\' to start!"
+start_msg = "            Press \'S\' to start!" # Start Game
 
 2.times do
-  print "\r#{start_msg}"
+  print "\r#{ start_msg }"
   sleep 0.5
-  print "\r#{' ' * start_msg.size}   "
+  print "\r#{ ' ' * start_msg.size }"
   sleep 0.5
 end
 
-print "         \n"
-print "#{start_msg}\n"
+print "\n"
+puts "#{start_msg}"
 start_game = gets.strip.downcase
 sleep(1)
 
-# puts " testing #{start_game}"
-if start_game == 's' || start_game == 'S'
-  puts "               OK, let\'s Play!\n\n\n"
+if start_game == 's'
+  puts "             OK, let\'s Play!\n\n\n"
 end
 
-# Player details:
-# Player 1
-sleep(2)
-puts '           Player 1, enter your name'
-player_1 = gets.strip.capitalize!
 sleep(1)
-puts "              #{player_1}, ready to go!\n\n\n"
+puts '           Player 1, enter your name' # Player 1
+$player_1 = gets.strip.capitalize!
+sleep(1)
+puts "              #{$player_1}, ready to go!\n\n\n"
 
 # Player 2
 sleep(2)
