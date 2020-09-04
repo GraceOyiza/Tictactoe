@@ -16,6 +16,8 @@ $player_turn = 1
 
 $random_win = nil?
 
+$random_win = rand 3
+
 def active_board
   puts '             .-----.-----.-----.'
   puts "             |  #{$c1}  |  #{$c2}  |  #{$c3}  |"
@@ -64,7 +66,7 @@ start_msg = "            Press \'S\' to start!" # Start Game
 end
 
 print "\n"
-puts "#{start_msg}.to_s"
+puts start_msg
 start_game = gets.strip.downcase
 sleep(1)
 
@@ -139,11 +141,9 @@ def toggle_player_turn
   end
 end
 
-while $player_turn < 10
+while $player_turn < rand(7..10) # winning factor will be added later/ in another method
   toggle_player_turn
 end
-
-$random_win = rand 3
 
 case $random_win
 when 1
