@@ -78,25 +78,22 @@ $player_1 = gets.strip.capitalize!
 sleep(1)
 puts "              #{$player_1}, ready to go!\n\n\n"
 
-# Player 2
-sleep(2)
-puts '           Player 2, enter your name'
-player_2 = gets.strip.capitalize!
 sleep(1)
-puts "              #{player_2}, ready to go!\n\n\n"
+puts '           Player 2, enter your name' # Player 2
+$player_2 = gets.strip.capitalize!
+sleep(1)
+puts "              #{$player_2}, ready to go!\n\n\n"
 
-sleep(3)
-puts "            Great! #{player_1} and #{player_2}"
-sleep(2)
+sleep(1)
+puts "            Great! #{$player_1} and #{$player_2}"
+sleep(1)
 puts "                 Let's do it!\n\n\n"
 
-sleep(4)
+sleep(2)
 puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
 active_board
-puts ''
-sleep(4)
-
-# Game play logic
+puts "\n\n"
+sleep(2)
 
 for player_turn in 1..9
   # Player toggle check
