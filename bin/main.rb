@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
-puts 'Hello World'
 
-# Welcome screen
-# Board Cells
-$c1 = 1
+$c1 = 1 # Board Cells
 $c2 = 2
 $c3 = 3
 $c4 = 4
@@ -102,8 +99,8 @@ def player_1_turn
   $board_input = nil?
   $board_input = gets.chomp.to_i
   puts "You chose cell #{$board_input}"
-  if $board[$board_input - 1] == ' '
-    $board[$board_input - 1] = 'X'
+  if $board[$board_input - 1] == ' ' 
+    $board[$board_input - 1] = 'X' # insert position
     puts ''
     board_choice_display
     #check if win is 'true' return
@@ -154,9 +151,12 @@ $random_win = rand 3
 
 case $random_win
 when 1
-  puts "Good job  #{$player_1}, \n You won!!!"
+  puts "\n\n\n"
+  puts "              Good job  #{$player_1}, \n You won!!!"
 when 2
-  puts "Good job, #{$player_2}, \n You won!!!"
+  puts "\n\n\n"
+  puts "              Good job, #{$player_2}, \n You won!!!"
 else
-  puts "It's a draw"
+  puts "\n\n\n"
+  puts "         It's a draw"
 end
