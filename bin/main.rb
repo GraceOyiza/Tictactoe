@@ -24,8 +24,6 @@ $winning_move = false
 
 $final_play = rand(6..9)
 
-puts "final play is #{$final_play}"
-
 def active_board
   puts '             .-----.-----.-----.'
   puts "             |  #{$c1}  |  #{$c2}  |  #{$c3}  |"
