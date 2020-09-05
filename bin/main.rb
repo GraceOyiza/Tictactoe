@@ -18,6 +18,14 @@ $random_win = nil?
 
 $random_win = rand 3
 
+$play_turns = true
+
+$winning_move = false
+
+$final_play = rand(6..9)
+
+puts "final play is #{$final_play}"
+
 def active_board
   puts '             .-----.-----.-----.'
   puts "             |  #{$c1}  |  #{$c2}  |  #{$c3}  |"
@@ -103,10 +111,10 @@ def player_1_turn
     $board[$board_input - 1] = 'X' # insert position
     puts ''
     board_choice_display
-    # check if win is 'true' return
+    $winning_move = $player_turn > $final_play
     $player_turn += 1
   else
-    puts "             Cell is already chosen\n Choose an empty cell\n"
+    puts "\n\n             Cell #{$board_input} is already chosen\n Choose an empty cell\n\n"
     player_1_turn
   end
 end
@@ -119,10 +127,10 @@ def player_2_turn
     $board[$board_input - 1] = 'O'
     puts ''
     board_choice_display
-    # check if win is 'true' return
+    $winning_move = $player_turn > $final_play
     $player_turn += 1
   else
-    puts "             Cell is already chosen\n Choose an empty cell\n"
+    puts "\n\n             Cell #{$board_input} is already chosen\n Choose an empty cell\n\n"
     player_2_turn
   end
 end
@@ -136,22 +144,28 @@ def toggle_player_turn
     puts "\n\n"
     puts "              #{$player_2}, Your turn!"
     self.player_2_turn
-  elsif $player_turn == 10
-    print 'results'
   end
 end
 
-while $player_turn < rand(7..10) # winning factor will be added later/ in another method
-  toggle_player_turn
+def determine_result
+  case $random_win
+  when 1
+    puts "\n\n\n            Good job,  #{$player_1}"
+    puts "               You won!!!\n\n\n"
+  when 2
+    puts "\n\n\n            Good job, #{$player_2}"
+    puts "               You won!!!\n\n\n"
+  else
+    puts "\n\n\n         It\'s a draw!\n\n\n"
+  end
 end
 
-case $random_win
-when 1
-  puts "\n\n\n            Good job,  #{$player_1}"
-  puts '               You won!!!'
-when 2
-  puts "\n\n\n            Good job, #{$player_2}"
-  puts '               You won!!!'
-else
-  puts '\n\n\n         It\'s a draw'
+while $play_turns
+  toggle_player_turn
+  if $winning_move
+    $play_turns = false
+    puts ''
+  end
 end
+
+determine_result
