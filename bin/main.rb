@@ -146,22 +146,23 @@ end
 def print_results
   sleep(3)
   puts "\n\n\n"
-  print '          ====='
+  print '        ====='
   print '='*$str.length
   print "=====\n"
-  print '          *    '
+  print '        *    '
   print ' '*$str.length
   print "    *\n"
-  puts "          *    #{$str}    *"
-  print '          *    '
+  puts "        *    #{$str}    *"
+  print '        *    '
   print ' '*$str.length
   print "    *\n"
-  print "          ====="
+  print "        ====="
   print '='*$str.length
   print "=====\n"
 end
 
 def declare_result
+  print_win_msg
   if $winning_move == true && $player_turn.odd?
     $str = "#{$win_msg} #{$player_1}, You Won!!!"
     print_results
