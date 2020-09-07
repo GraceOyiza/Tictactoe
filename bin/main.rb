@@ -14,15 +14,35 @@ $board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
 $player_turn = 1
 
-$random_win = nil?
+$random_win_msg = nil?
 
-$random_win = rand 3
+$random_win_msg = rand 7
 
 $play_turns = true
 
 $winning_move = false
 
-$final_play = rand(6..9)
+$str = ''
+
+def determine_winner
+  if $board[0] != ' ' && $board[1] != ' ' && $board[2] != ' ' && $board[0] == $board[1] && $board[1] == $board[2] # 1 2 3
+    $winning_move = true
+  elsif $board[0] != ' ' && $board[4] != ' ' && $board[8] != ' ' && $board[0] == $board[4] && $board[4] == $board[8] # 1 5 9
+    $winning_move = true
+  elsif $board[0] != ' ' && $board[3] != ' ' && $board[6] != ' ' && $board[0] == $board[3] && $board[3] == $board[6] # 1 4 7
+      $winning_move = true
+  elsif $board[1] != ' ' && $board[4] != ' ' && $board[7] != ' ' && $board[1] == $board[4] && $board[4] == $board[7] # 2 5 8
+      $winning_move = true
+  elsif $board[2] != ' ' && $board[4] != ' ' && $board[6] != ' ' && $board[2] == $board[4] && $board[4] == $board[6] # 3 5 7
+      $winning_move = true
+  elsif $board[2] != ' ' && $board[5] != ' ' && $board[8] != ' ' && $board[2] == $board[5] && $board[5] == $board[8] # 3 6 9
+      $winning_move = true 
+  elsif $board[3] != ' ' && $board[4] != ' ' && $board[5] != ' ' && $board[3] == $board[4] && $board[4] == $board[5] # 4 5 6
+      $winning_move = true
+  elsif $board[6] != ' ' && $board[7] != ' ' && $board[8] != ' ' && $board[6] == $board[7] && $board[7] == $board[8] # 7 8 9
+      $winning_move = true
+  end
+end
 
 def active_board
   puts '             .-----.-----.-----.'
@@ -79,27 +99,30 @@ sleep(1)
 puts "             OK, let\'s Play!\n\n\n" if start_game == 's'
 
 sleep(1)
-puts '           Player 1, enter your name' # Player 1
+puts '       Player [1], enter your name >>' # Player 1
 $player_1 = gets.strip.capitalize!
 sleep(1)
 puts "              #{$player_1}, ready to go!\n\n\n"
 
 sleep(1)
-puts '           Player 2, enter your name' # Player 2
+puts '       Player [2], enter your name >>' # Player 2
 $player_2 = gets.strip.capitalize!
 sleep(1)
 puts "              #{$player_2}, ready to go!\n\n\n"
 
-sleep(1)
+sleep(2)
 puts "            Great! #{$player_1} and #{$player_2}"
 sleep(1)
 puts "                 Let's do it!\n\n\n"
 
 sleep(2)
 puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
+sleep(1)
 active_board
 puts "\n\n"
-sleep(2)
+sleep(3)
+
+
 
 def player_1_turn
   $board_input = nil?
@@ -109,8 +132,10 @@ def player_1_turn
     $board[$board_input - 1] = 'X' # insert position
     puts ''
     board_choice_display
-    $winning_move = $player_turn > $final_play
-    $player_turn += 1
+    determine_winner
+    if $winning_move == false
+      $player_turn += 1
+    end
   else
     puts "\n\n             Cell #{$board_input} is already chosen\n Choose an empty cell\n\n"
     player_1_turn
@@ -125,8 +150,10 @@ def player_2_turn
     $board[$board_input - 1] = 'O'
     puts ''
     board_choice_display
-    $winning_move = $player_turn > $final_play
-    $player_turn += 1
+    determine_winner
+    if $winning_move == false
+      $player_turn += 1   
+    end
   else
     puts "\n\n             Cell #{$board_input} is already chosen\n Choose an empty cell\n\n"
     player_2_turn
@@ -136,34 +163,52 @@ end
 def toggle_player_turn
   if $player_turn.odd?
     puts "\n\n"
-    puts "              #{$player_1}, Your turn!"
+    puts "              #{$player_1}, Your turn! [X]\n\n"
     self.player_1_turn
   elsif $player_turn.even?
     puts "\n\n"
-    puts "              #{$player_2}, Your turn!"
+    puts "              #{$player_2}, Your turn! [O]\n\n"
     self.player_2_turn
   end
 end
 
-def determine_result
-  case $random_win
-  when 1
-    puts "\n\n\n            Good job,  #{$player_1}"
-    puts "               You won!!!\n\n\n"
-  when 2
-    puts "\n\n\n            Good job, #{$player_2}"
-    puts "               You won!!!\n\n\n"
-  else
-    puts "\n\n\n         It\'s a draw!\n\n\n"
+def print_results
+  sleep(3)
+  puts "\n\n\n"
+  print '          ====='
+  print '='*$str.length
+  print "=====\n"
+  print '          *    '
+  print ' '*$str.length
+  print "    *\n"
+  puts "          *    #{$str}    *"
+  print '          *    '
+  print ' '*$str.length
+  print "    *\n"
+  print "          ====="
+  print '='*$str.length
+  print "=====\n"
+end
+
+def declare_result
+  if $winning_move == true && $player_turn.odd?
+    $str = "GreatJob #{$player_1}, You Won!!!"
+    print_results
+  elsif $winning_move == true && $player_turn.even?
+    $str = "GreatJob #{$player_2}, You Won!!!"
+    print_results
+  elsif $winning_move == false && $player_turn == 10
+    $str = "It\'s a draw!"
+    print_results
   end
 end
 
 while $play_turns
   toggle_player_turn
-  if $winning_move
+  if $winning_move || $player_turn == 10
     $play_turns = false
-    puts ''
+    puts "\n\n"
   end
 end
 
-determine_result
+declare_result
