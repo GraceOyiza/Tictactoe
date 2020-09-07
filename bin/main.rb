@@ -18,6 +18,8 @@ $random_win_msg = nil?
 
 $random_win_msg = rand 7
 
+$win_msg = ''
+
 $play_turns = true
 
 $winning_move = false
@@ -74,62 +76,12 @@ def display_demo_board
   puts '             .-----.-----.-----.'
 end
 
-puts "\n\n"
-puts '           Welcome,  TiC TaC To\'eR!'
-puts ''
-display_demo_board
-puts ''
-puts "          Built by Robert and Grace\n\n\n"
-
-sleep(2)
-start_msg = "            Press \'S\' to start!" # Start Game
-
-2.times do
-  print "\r#{start_msg}"
-  sleep 0.5
-  print "\r#{' ' * start_msg.size}"
-  sleep 0.5
-end
-
-print "\n"
-puts start_msg
-start_game = gets.strip.downcase
-sleep(1)
-
-puts "             OK, let\'s Play!\n\n\n" if start_game == 's'
-
-sleep(1)
-puts '       Player [1], enter your name >>' # Player 1
-$player_1 = gets.strip.capitalize!
-sleep(1)
-puts "              #{$player_1}, ready to go!\n\n\n"
-
-sleep(1)
-puts '       Player [2], enter your name >>' # Player 2
-$player_2 = gets.strip.capitalize!
-sleep(1)
-puts "              #{$player_2}, ready to go!\n\n\n"
-
-sleep(2)
-puts "            Great! #{$player_1} and #{$player_2}"
-sleep(1)
-puts "                 Let's do it!\n\n\n"
-
-sleep(2)
-puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
-sleep(1)
-active_board
-puts "\n\n"
-sleep(3)
-
-
-
 def player_1_turn
   $board_input = nil?
   $board_input = gets.chomp.to_i
   puts "You chose cell #{$board_input}"
   if $board[$board_input - 1] == ' '
-    $board[$board_input - 1] = 'X' # insert position
+    $board[$board_input - 1] = 'X'
     puts ''
     board_choice_display
     determine_winner
@@ -172,6 +124,25 @@ def toggle_player_turn
   end
 end
 
+def print_win_msg
+  case $random_win_msg
+  when 1
+    $win_msg = 'You made it..'
+  when 2
+    $win_msg = 'You\'re a champion..'
+  when 3
+    $win_msg = 'Awesome..'
+  when 4
+    $win_msg = 'Fantastic.. '
+  when 5
+    $win_msg = 'Are You Awesome or What.. '
+  when 6
+    $win_msg = 'That was swift.. '   
+  else
+    $win_msg = 'Great Job..'
+  end
+end
+
 def print_results
   sleep(3)
   puts "\n\n\n"
@@ -192,16 +163,65 @@ end
 
 def declare_result
   if $winning_move == true && $player_turn.odd?
-    $str = "GreatJob #{$player_1}, You Won!!!"
+    $str = "#{$win_msg} #{$player_1}, You Won!!!"
     print_results
   elsif $winning_move == true && $player_turn.even?
-    $str = "GreatJob #{$player_2}, You Won!!!"
+    $str = "#{$win_msg} #{$player_2}, You Won!!!"
     print_results
   elsif $winning_move == false && $player_turn == 10
     $str = "It\'s a draw!"
     print_results
   end
 end
+
+puts "\n\n"
+puts '           Welcome,  TiC TaC To\'eR!'
+puts ''
+display_demo_board
+puts ''
+sleep(1)
+puts "          Built by Robert and Grace\n\n\n"
+
+sleep(2)
+start_msg = "            Press \'S\' to start!" # Start Game
+
+2.times do
+  print "\r#{start_msg}"
+  sleep 0.5
+  print "\r#{' ' * start_msg.size}"
+  sleep 0.5
+end
+
+print "\n"
+puts start_msg
+start_game = gets.strip.downcase
+sleep(1)
+
+puts "             OK, let\'s Play!\n\n\n" if start_game == 's'
+
+sleep(1)
+puts '       Player [1], enter your name >>' # Player 1
+$player_1 = gets.strip.capitalize!
+sleep(1)
+puts "              #{$player_1}, ready to go!\n\n\n"
+
+sleep(1)
+puts '       Player [2], enter your name >>' # Player 2
+$player_2 = gets.strip.capitalize!
+sleep(1)
+puts "              #{$player_2}, ready to go!\n\n\n"
+
+sleep(2)
+puts "            Great! #{$player_1} and #{$player_2}"
+sleep(1)
+puts "                 Let's do it!\n\n\n"
+
+sleep(2)
+puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
+sleep(1)
+active_board
+puts "\n\n"
+sleep(3)
 
 while $play_turns
   toggle_player_turn
