@@ -115,11 +115,11 @@ end
 def toggle_player_turn
   if $player_turn.odd?
     puts "\n\n"
-    puts "              #{$player_1}, Your turn! [X]\n\n"
+    puts "           #{$player_1}, Your turn! [X]\n\n"
     self.player_1_turn
   elsif $player_turn.even?
     puts "\n\n"
-    puts "              #{$player_2}, Your turn! [O]\n\n"
+    puts "           #{$player_2}, Your turn! [O]\n\n"
     self.player_2_turn
   end
 end
@@ -127,19 +127,19 @@ end
 def print_win_msg
   case $random_win_msg
   when 1
-    $win_msg = 'You made it..'
+    $win_msg = "You made it.."
   when 2
-    $win_msg = 'You\'re a champion..'
+    $win_msg = "You\'re a champion.."
   when 3
-    $win_msg = 'Awesome..'
+    $win_msg = "Awesome.."
   when 4
-    $win_msg = 'Fantastic.. '
+    $win_msg = "Fantastic.. "
   when 5
-    $win_msg = 'Are You Awesome or What.. '
+    $win_msg = "Are You Awesome or What.. "
   when 6
-    $win_msg = 'That was swift.. '   
+    $win_msg = "That was swift.. "  
   else
-    $win_msg = 'Great Job..'
+    $win_msg = "Great Job.."
   end
 end
 
