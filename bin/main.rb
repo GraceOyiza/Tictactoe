@@ -185,10 +185,21 @@ end
 
 print "\n"
 puts start_msg
-start_game = gets.strip.downcase
-sleep(1)
 
-puts "             OK, let\'s Play!\n\n\n" if start_game == 's'
+
+def start_check
+  start_game = gets.strip.downcase
+  sleep(1)
+  if start_game == 's'
+    puts "             OK, let\'s Play!\n\n\n"
+  else
+    puts "             PLEASE INPUT 'S' TO CONTINUE..\n"
+    start_game = nil?
+    start_check
+  end
+end
+
+start_check
 
 sleep(1)
 puts '       Player [1], enter your name >>' # Player 1
