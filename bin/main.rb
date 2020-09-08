@@ -1,15 +1,5 @@
 #!/usr/bin/env ruby
 
-$c1 = 1 # Board Cells
-$c2 = 2
-$c3 = 3
-$c4 = 4
-$c5 = 5
-$c6 = 6
-$c7 = 7
-$c8 = 8
-$c9 = 9
-
 $board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
 $player_turn = 1
@@ -46,13 +36,13 @@ def determine_winner
   end
 end
 
-def active_board
+def numbered_board
   puts '             .-----.-----.-----.'
-  puts "             |  #{$c1}  |  #{$c2}  |  #{$c3}  |"
+  puts "             |  1  |  2  |  3  |"
   puts '             .-----+-----+-----.'
-  puts "             |  #{$c4}  |  #{$c5}  |  #{$c6}  |"
+  puts "             |  4  |  5  |  6  |"
   puts '             .-----+-----+-----.'
-  puts "             |  #{$c7}  |  #{$c8}  |  #{$c9}  |"
+  puts "             |  7  |  8  |  9  |"
   puts '             .-----.-----.-----.'
 end
 
@@ -220,9 +210,9 @@ puts "                 Let's do it!\n\n\n"
 sleep(2)
 puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
 sleep(1)
-active_board
+numbered_board
 puts "\n\n"
-sleep(3)
+sleep(2)
 
 while $play_turns
   toggle_player_turn
