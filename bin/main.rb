@@ -149,6 +149,8 @@ def print_results
   print "        ====="
   print '='*$str.length
   print "=====\n"
+  puts "\n\n"
+  print 'Thanks for Playing!'
 end
 
 def declare_result
@@ -203,9 +205,16 @@ start_check
 
 sleep(1)
 puts '       Player [1], enter your name >>' # Player 1
-$player_1 = gets.strip.capitalize!
-sleep(1)
-puts "              #{$player_1}, ready to go!\n\n\n"
+$player_1 = gets.chomp.capitalize!
+
+puts $player_1.length
+
+if $player_1 != nil # || $player_1.scan(/\D/).empty?
+  sleep(1)
+  puts "              #{$player_1}, ready to go!\n\n\n"
+else
+  puts " Enter correct name"
+end
 
 sleep(1)
 puts '       Player [2], enter your name >>' # Player 2
