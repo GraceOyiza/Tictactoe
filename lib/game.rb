@@ -109,6 +109,7 @@ class Game
         puts "\n\n"
       end
     end
+  end
 
     def declare_result
       print_win_msg
