@@ -75,5 +75,25 @@ class Game
   end
 
   
+  def print_win_msg
+    random_win_msg = rand 7
+    case random_win_msg
+    when 1
+      $win_msg = "You made it.."
+    when 2
+      $win_msg = "You\'re a champion.."
+    when 3
+      $win_msg = "Awesome.."
+    when 4
+      $win_msg = "Fantastic.. "
+    when 5
+      $win_msg = "Are You Awesome or What.. "
+    when 6
+      $win_msg = "That was swift.. "  
+    else
+      $win_msg = "Great Job.."
+    end
+  end
+  
 
 end
