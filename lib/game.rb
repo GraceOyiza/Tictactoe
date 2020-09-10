@@ -95,5 +95,13 @@ class Game
     end
   end
   
+  def game_play
+    while $play_turns
+      toggle_player_turn
+      if $winning_move || $player_turn == 10
+        $play_turns = false
+        puts "\n\n"
+      end
+    end
 
 end
