@@ -14,7 +14,6 @@ class Game
       puts "             OK, let\'s Play!\n\n\n"
     else
       puts "             PLEASE INPUT 'S' TO CONTINUE..\n"
-      start_game = nil?
       start_check
     end
   end
@@ -29,15 +28,13 @@ class Game
         puts ''
         $board_o.board_choice_display
         $board_o.determine_winner
-        if $winning_move == false
-          $player_turn += 1
-        end
+        $player_turn += 1 if $winning_move == false
       else
         puts "\n\n             Cell #{$board_input} is already chosen\n Choose an empty cell\n\n"
         player_1_turn
       end
     else
-      puts "Please enter an Integer/ Value [1-9]!"
+      puts 'Please enter an Integer/ Value [1-9]!'
       $board_input = nil
       player_1_turn
     end
@@ -53,15 +50,13 @@ class Game
         puts ''
         $board_o.board_choice_display
         $board_o.determine_winner
-        if $winning_move == false
-          $player_turn += 1
-        end
+        $player_turn += 1 if $winning_move == false
       else
         puts "\n\n             Cell #{$board_input} is already chosen\n Choose an empty cell\n\n"
         player_2_turn
       end
     else
-      puts "Please enter an Integer/ Value [1-9]!"
+      puts 'Please enter an Integer/ Value [1-9]!'
       $board_input = nil
       player_2_turn
     end
@@ -83,19 +78,19 @@ class Game
     random_win_msg = rand 7
     case random_win_msg
     when 1
-      $win_msg = "You made it.."
+      $win_msg = 'You made it..'
     when 2
-      $win_msg = "You\'re a champion.."
+      $win_msg = 'You\'re a champion..'
     when 3
-      $win_msg = "Awesome.."
+      $win_msg = 'Awesome..'
     when 4
-      $win_msg = "Fantastic.. "
+      $win_msg = 'Fantastic.. '
     when 5
-      $win_msg = "Are You Awesome or What.. "
+      $win_msg = 'Are You Awesome or What.. '
     when 6
-      $win_msg = "That was swift.. "
+      $win_msg = 'That was swift.. '
     else
-      $win_msg = "Great Job.."
+      $win_msg = 'Great Job..'
     end
   end
 

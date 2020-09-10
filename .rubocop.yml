@@ -60,5 +60,10 @@ Style/GlobalVars:
   Enabled: false
 Style/WhileUntilModifier:
   Enabled: false
-
+Style/ConditionalAssignment:
+  Enabled: false
+Style/RescueModifier:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
  

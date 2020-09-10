@@ -66,7 +66,7 @@ class Board
     print '        *    '
     print ' ' * $str.length
     print "    *\n"
-    print "        ====="
+    print '        ====='
     print '=' * $str.length
     print "=====\n\n"
     puts "             Thanks For Playing!\n\n"
