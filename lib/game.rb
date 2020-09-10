@@ -1,6 +1,12 @@
-class Game
+require '../lib/Board.rb'
+  $board_o = Board.new
 
+class Game
+  $str = ''
+  $win_msg = ''
   $player_turn = 1
+  $play_turns = true
+  
 
   def start_check
     start_game = gets.strip.downcase
