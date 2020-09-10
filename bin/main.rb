@@ -42,3 +42,7 @@ sleep(1)
 board_o.numbered_board
 puts "\n\n"
 sleep(2)
+
+game_o.game_play
+
+game_o.declare_result
