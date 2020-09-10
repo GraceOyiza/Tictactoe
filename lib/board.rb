@@ -1,5 +1,5 @@
 class Board
-  $board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  $board_ar = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
   $winning_move = false
   $str = ''
 
@@ -25,36 +25,36 @@ class Board
 
   def board_choice_display
     puts '      .-----.-----.-----.      .-----.-----.-----.'
-    puts "      |  1  |  2  |  3  |      |  #{$board[0]}  |  #{$board[1]}  |  #{$board[2]}  |"
+    puts "      |  1  |  2  |  3  |      |  #{$board_ar[0]}  |  #{$board_ar[1]}  |  #{$board_ar[2]}  |"
     puts '      .-----+-----+-----.      .-----+-----+-----.'
-    puts "      |  4  |  5  |  6  | ==>> |  #{$board[3]}  |  #{$board[4]}  |  #{$board[5]}  |"
+    puts "      |  4  |  5  |  6  | ==>> |  #{$board_ar[3]}  |  #{$board_ar[4]}  |  #{$board_ar[5]}  |"
     puts '      .-----+-----+-----.      .-----+-----+-----.'
-    puts "      |  7  |  8  |  9  |      |  #{$board[6]}  |  #{$board[7]}  |  #{$board[8]}  |"
+    puts "      |  7  |  8  |  9  |      |  #{$board_ar[6]}  |  #{$board_ar[7]}  |  #{$board_ar[8]}  |"
     puts '      .-----.-----.-----.      .-----.-----.-----.'
   end
 
   def determine_winner
-    if $board[0] != ' ' && $board[1] != ' ' && $board[2] != ' ' && $board[0] == $board[1] && $board[1] == $board[2]
+    if $board_ar[0] != ' ' && $board_ar[1] != ' ' && $board_ar[2] != ' ' && $board_ar[0] == $board_ar[1] && $board_ar[1] == $board_ar[2]
       $winning_move = true
-    elsif $board[0] != ' ' && $board[4] != ' ' && $board[8] != ' ' && $board[0] == $board[4] && $board[4] == $board[8]
+    elsif $board_ar[0] != ' ' && $board_ar[4] != ' ' && $board_ar[8] != ' ' && $board_ar[0] == $board_ar[4] && $board_ar[4] == $board_ar[8]
       $winning_move = true
-    elsif $board[0] != ' ' && $board[3] != ' ' && $board[6] != ' ' && $board[0] == $board[3] && $board[3] == $board[6]
+    elsif $board_ar[0] != ' ' && $board_ar[3] != ' ' && $board_ar[6] != ' ' && $board_ar[0] == $board_ar[3] && $board_ar[3] == $board_ar[6]
       $winning_move = true
-    elsif $board[1] != ' ' && $board[4] != ' ' && $board[7] != ' ' && $board[1] == $board[4] && $board[4] == $board[7]
+    elsif $board_ar[1] != ' ' && $board_ar[4] != ' ' && $board_ar[7] != ' ' && $board_ar[1] == $board_ar[4] && $board_ar[4] == $board_ar[7]
       $winning_move = true
-    elsif $board[2] != ' ' && $board[4] != ' ' && $board[6] != ' ' && $board[2] == $board[4] && $board[4] == $board[6]
+    elsif $board_ar[2] != ' ' && $board_ar[4] != ' ' && $board_ar[6] != ' ' && $board_ar[2] == $board_ar[4] && $board_ar[4] == $board_ar[6]
       $winning_move = true
-    elsif $board[2] != ' ' && $board[5] != ' ' && $board[8] != ' ' && $board[2] == $board[5] && $board[5] == $board[8]
+    elsif $board_ar[2] != ' ' && $board_ar[5] != ' ' && $board_ar[8] != ' ' && $board_ar[2] == $board_ar[5] && $board_ar[5] == $board_ar[8]
       $winning_move = true
-    elsif $board[3] != ' ' && $board[4] != ' ' && $board[5] != ' ' && $board[3] == $board[4] && $board[4] == $board[5]
+    elsif $board_ar[3] != ' ' && $board_ar[4] != ' ' && $board_ar[5] != ' ' && $board_ar[3] == $board_ar[4] && $board_ar[4] == $board_ar[5]
       $winning_move = true
-    elsif $board[6] != ' ' && $board[7] != ' ' && $board[8] != ' ' && $board[6] == $board[7] && $board[7] == $board[8]
+    elsif $board_ar[6] != ' ' && $board_ar[7] != ' ' && $board_ar[8] != ' ' && $board_ar[6] == $board_ar[7] && $board_ar[7] == $board_ar[8]
       $winning_move = true
     end
   end
 
   def print_results
-    sleep(3)
+    sleep(1)
     puts "\n\n\n"
     print '        ====='
     print '=' * $str.length
