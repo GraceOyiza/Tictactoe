@@ -1,12 +1,11 @@
 require '../lib/Board.rb'
-  $board_o = Board.new
+$board_o = Board.new
 
 class Game
   $str = ''
   $win_msg = ''
   $player_turn = 1
   $play_turns = true
-  
 
   def start_check
     start_game = gets.strip.downcase
@@ -47,7 +46,7 @@ class Game
   def player_2_turn
     $board_input = nil?
     $board_input = Integer(gets) rescue false
-    if $board_input && $board_input >= 1 && $board_input <= 9 
+    if $board_input && $board_input >= 1 && $board_input <= 9
       puts "\n You chose cell #{$board_input}"
       if $board[$board_input - 1] == ' '
         $board[$board_input - 1] = 'O'
@@ -80,7 +79,6 @@ class Game
     end
   end
 
-  
   def print_win_msg
     random_win_msg = rand 7
     case random_win_msg
@@ -95,12 +93,12 @@ class Game
     when 5
       $win_msg = "Are You Awesome or What.. "
     when 6
-      $win_msg = "That was swift.. "  
+      $win_msg = "That was swift.. "
     else
       $win_msg = "Great Job.."
     end
   end
-  
+
   def game_play
     while $play_turns
       toggle_player_turn
@@ -111,18 +109,17 @@ class Game
     end
   end
 
-    def declare_result
-      print_win_msg
-      if $winning_move == true && $player_turn.odd?
-        $str = "#{$win_msg} #{$player_1}, You Won!!!"
-        $board_o.print_results
-      elsif $winning_move == true && $player_turn.even?
-        $str = "#{$win_msg} #{$player_2}, You Won!!!"
-        $board_o.print_results
-      elsif $winning_move == false && $player_turn == 10
-        $str = "It\'s a draw!"
-        $board_o.print_results
-      end
+  def declare_result
+    print_win_msg
+    if $winning_move == true && $player_turn.odd?
+      $str = "#{$win_msg} #{$player_1}, You Won!!!"
+      $board_o.print_results
+    elsif $winning_move == true && $player_turn.even?
+      $str = "#{$win_msg} #{$player_2}, You Won!!!"
+      $board_o.print_results
+    elsif $winning_move == false && $player_turn == 10
+      $str = "It\'s a draw!"
+      $board_o.print_results
     end
-
+  end
 end
