@@ -13,7 +13,7 @@ class Board
     puts '             .-----.-----.-----.'
   end
 
-  def numbered_board
+  def display_numbered_board
     puts '             .-----.-----.-----.'
     puts '             |  1  |  2  |  3  |'
     puts '             .-----+-----+-----.'

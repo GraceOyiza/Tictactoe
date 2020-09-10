@@ -1,4 +1,4 @@
-require_relative '../lib/Board.rb'
+require_relative '../lib/board.rb'
 $board_o = Board.new
 
 class Game
