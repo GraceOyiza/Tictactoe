@@ -29,4 +29,11 @@ class Player
           puts "\n"
         end
       end 
+
+      def ready_to_play
+        sleep(2)
+        puts "            Great! #{$player_1} and #{$player_2}"
+        sleep(1)
+        puts "                 Let's do it!\n\n\n"
+      end
 end
