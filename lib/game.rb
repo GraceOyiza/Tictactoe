@@ -62,6 +62,18 @@ class Game
     end
   end
 
+  def toggle_player_turn
+    if $player_turn.odd?
+      puts "\n\n"
+      puts "           #{$player_1}, Your turn! [X]\n\n"
+      self.player_1_turn
+    elsif $player_turn.even?
+      puts "\n\n"
+      puts "           #{$player_2}, Your turn! [O]\n\n"
+      self.player_2_turn
+    end
+  end
+
   
 
 end
