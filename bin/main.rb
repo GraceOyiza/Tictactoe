@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 
-$board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+require '../lib/Board.rb'
+require '../lib/Game.rb'
+
+$board_o = Board.new
+$game_o = Game.new
 
 $player_turn = 1
 
@@ -16,56 +20,6 @@ $winning_move = false
 
 $str = ''
 
-def determine_winner
-  if $board[0] != ' ' && $board[1] != ' ' && $board[2] != ' ' && $board[0] == $board[1] && $board[1] == $board[2] # 1 2 3
-    $winning_move = true
-  elsif $board[0] != ' ' && $board[4] != ' ' && $board[8] != ' ' && $board[0] == $board[4] && $board[4] == $board[8] # 1 5 9
-    $winning_move = true
-  elsif $board[0] != ' ' && $board[3] != ' ' && $board[6] != ' ' && $board[0] == $board[3] && $board[3] == $board[6] # 1 4 7
-      $winning_move = true
-  elsif $board[1] != ' ' && $board[4] != ' ' && $board[7] != ' ' && $board[1] == $board[4] && $board[4] == $board[7] # 2 5 8
-      $winning_move = true
-  elsif $board[2] != ' ' && $board[4] != ' ' && $board[6] != ' ' && $board[2] == $board[4] && $board[4] == $board[6] # 3 5 7
-      $winning_move = true
-  elsif $board[2] != ' ' && $board[5] != ' ' && $board[8] != ' ' && $board[2] == $board[5] && $board[5] == $board[8] # 3 6 9
-      $winning_move = true 
-  elsif $board[3] != ' ' && $board[4] != ' ' && $board[5] != ' ' && $board[3] == $board[4] && $board[4] == $board[5] # 4 5 6
-      $winning_move = true
-  elsif $board[6] != ' ' && $board[7] != ' ' && $board[8] != ' ' && $board[6] == $board[7] && $board[7] == $board[8] # 7 8 9
-      $winning_move = true
-  end
-end
-
-def numbered_board
-  puts '             .-----.-----.-----.'
-  puts "             |  1  |  2  |  3  |"
-  puts '             .-----+-----+-----.'
-  puts "             |  4  |  5  |  6  |"
-  puts '             .-----+-----+-----.'
-  puts "             |  7  |  8  |  9  |"
-  puts '             .-----.-----.-----.'
-end
-
-def board_choice_display
-  puts '      .-----.-----.-----.      .-----.-----.-----.'
-  puts "      |  1  |  2  |  3  |      |  #{$board[0]}  |  #{$board[1]}  |  #{$board[2]}  |"
-  puts '      .-----+-----+-----.      .-----+-----+-----.'
-  puts "      |  4  |  5  |  6  | ==>> |  #{$board[3]}  |  #{$board[4]}  |  #{$board[5]}  |"
-  puts '      .-----+-----+-----.      .-----+-----+-----.'
-  puts "      |  7  |  8  |  9  |      |  #{$board[6]}  |  #{$board[7]}  |  #{$board[8]}  |"
-  puts '      .-----.-----.-----.      .-----.-----.-----.'
-end
-
-def display_demo_board
-  puts '             .-----.-----.-----.'
-  puts '             |  X  |  O  |  X  |'
-  puts '             .-----+-----+-----.'
-  puts '             |  O  |  X  |  O  |'
-  puts '             .-----+-----+-----.'
-  puts '             |  X  |  O  |     |'
-  puts '             .-----.-----.-----.'
-end
-
 def player_1_turn
   $board_input = nil?
   $board_input = gets.chomp.to_i
@@ -73,8 +27,8 @@ def player_1_turn
   if $board[$board_input - 1] == ' '
     $board[$board_input - 1] = 'X'
     puts ''
-    board_choice_display
-    determine_winner
+    $board_o.board_choice_display
+    $board_o.determine_winner
     if $winning_move == false
       $player_turn += 1
     end
@@ -91,8 +45,8 @@ def player_2_turn
   if $board[$board_input - 1] == ' '
     $board[$board_input - 1] = 'O'
     puts ''
-    board_choice_display
-    determine_winner
+    $board_o.board_choice_display
+    $board_o.determine_winner
     if $winning_move == false
       $player_turn += 1   
     end
@@ -148,9 +102,8 @@ def print_results
   print "    *\n"
   print "        ====="
   print '='*$str.length
-  print "=====\n"
-  puts "\n\n"
-  print 'Thanks for Playing!'
+  print "=====\n\n\n"
+  puts "       Thanks for Playing!\n\n"
 end
 
 def declare_result
@@ -170,7 +123,7 @@ end
 puts "\n\n"
 puts '           Welcome,  TiC TaC To\'eR!'
 puts ''
-display_demo_board
+$board_o.display_demo_board
 puts ''
 sleep(1)
 puts "          Built by Robert and Grace\n\n\n"
@@ -188,20 +141,7 @@ end
 print "\n"
 puts start_msg
 
-
-def start_check
-  start_game = gets.strip.downcase
-  sleep(1)
-  if start_game == 's'
-    puts "             OK, let\'s Play!\n\n\n"
-  else
-    puts "             PLEASE INPUT 'S' TO CONTINUE..\n"
-    start_game = nil?
-    start_check
-  end
-end
-
-start_check
+$game_o.start_check
 
 sleep(1)
 puts '       Player [1], enter your name >>' # Player 1
@@ -230,7 +170,7 @@ puts "                 Let's do it!\n\n\n"
 sleep(2)
 puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
 sleep(1)
-numbered_board
+$board_o.numbered_board
 puts "\n\n"
 sleep(2)
 
