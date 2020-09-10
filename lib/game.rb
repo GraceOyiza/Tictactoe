@@ -1,4 +1,4 @@
-require '../lib/Board.rb'
+require_relative '../lib/Board.rb'
 $board_o = Board.new
 
 class Game
@@ -23,8 +23,8 @@ class Game
     $board_input = Integer(gets) rescue false
     if $board_input && $board_input >= 1 && $board_input <= 9
       puts "\n You chose cell #{$board_input}"
-      if $board[$board_input - 1] == ' '
-        $board[$board_input - 1] = 'X'
+      if $b_ar[$board_input - 1] == ' '
+        $b_ar[$board_input - 1] = 'X'
         puts ''
         $board_o.board_choice_display
         $board_o.determine_winner
@@ -45,8 +45,8 @@ class Game
     $board_input = Integer(gets) rescue false
     if $board_input && $board_input >= 1 && $board_input <= 9
       puts "\n You chose cell #{$board_input}"
-      if $board[$board_input - 1] == ' '
-        $board[$board_input - 1] = 'O'
+      if $b_ar[$board_input - 1] == ' '
+        $b_ar[$board_input - 1] = 'O'
         puts ''
         $board_o.board_choice_display
         $board_o.determine_winner

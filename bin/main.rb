@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-require '../lib/Board.rb'
-require '../lib/Game.rb'
-require '../lib/Player.rb'
+require_relative '../lib/Board.rb'
+require_relative '../lib/Game.rb'
+require_relative '../lib/Player.rb'
 
 board_o = Board.new
 game_o = Game.new
@@ -41,7 +41,7 @@ puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
 sleep(1)
 board_o.numbered_board
 puts "\n\n"
-sleep(2)
+sleep(1)
 
 game_o.game_play
 
