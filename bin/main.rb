@@ -17,7 +17,7 @@ sleep(1)
 puts "          Built by Robert and Grace\n\n\n"
 
 sleep(1)
-start_msg = "            Press \'S\' to start!" 
+start_msg = "            Press \'S\' to start!"
 
 2.times do
   print "\r#{start_msg}"
