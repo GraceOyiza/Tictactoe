@@ -110,4 +110,18 @@ class Game
       end
     end
 
+    def declare_result
+      print_win_msg
+      if $winning_move == true && $player_turn.odd?
+        $str = "#{$win_msg} #{$player_1}, You Won!!!"
+        $board_o.print_results
+      elsif $winning_move == true && $player_turn.even?
+        $str = "#{$win_msg} #{$player_2}, You Won!!!"
+        $board_o.print_results
+      elsif $winning_move == false && $player_turn == 10
+        $str = "It\'s a draw!"
+        $board_o.print_results
+      end
+    end
+
 end
