@@ -35,3 +35,10 @@ palyer_o.check_player1_name
 palyer_o.check_player2_name
 
 palyer_o.ready_to_play
+
+sleep(1)
+puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
+sleep(1)
+board_o.numbered_board
+puts "\n\n"
+sleep(2)
