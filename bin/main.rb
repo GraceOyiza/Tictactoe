@@ -17,4 +17,21 @@ sleep(1)
 puts "          Built by Robert and Grace\n\n\n"
 
 sleep(1)
-start_msg = "            Press \'S\' to start!" # Start Game
+start_msg = "            Press \'S\' to start!" 
+
+2.times do
+  print "\r#{start_msg}"
+  sleep 0.5
+  print "\r#{' ' * start_msg.size}"
+  sleep 0.5
+end
+
+print "\n"
+puts start_msg
+
+game_o.start_check
+
+palyer_o.check_player1_name
+palyer_o.check_player2_name
+
+palyer_o.ready_to_play
