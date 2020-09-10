@@ -53,4 +53,23 @@ class Board
         end
       end
 
+      def print_results
+        sleep(3)
+        puts "\n\n\n"
+        print '        ====='
+        print '='*$str.length
+        print "=====\n"
+        print '        *    '
+        print ' '*$str.length
+        print "    *\n"
+        puts "        *    #{$str}    *"
+        print '        *    '
+        print ' '*$str.length
+        print "    *\n"
+        print "        ====="
+        print '='*$str.length
+        print "=====\n\n"
+        puts "             Thanks For Playing!\n\n"
+      end
+
 end
