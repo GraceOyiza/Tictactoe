@@ -28,7 +28,7 @@
 
 - Github: [@githubhandle](https://github.com/GraceOyiza)
 - Twitter: [@twitterhandle](https://twitter.com/_PopsonGrace)
-- Linkedin: [linkedin](https://www.linkedin.com/in/grace-popoola-657a181aa/)
+- Linkedin: [linkedin](https://www.linkedin.com/in/grace-popoola)
 
 👤 **Robert Loterh**
 
