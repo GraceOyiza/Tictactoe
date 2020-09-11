@@ -41,7 +41,7 @@ puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
 sleep(1)
 board_o.display_numbered_board
 puts "\n\n"
-sleep(1)
+sleep(2)
 
 game_o.game_play
 
