@@ -30,7 +30,7 @@ It's a draw when all the mark points on the board are full and none of the playe
 ## Getting Started
 - Run game using the demo link [here](https://repl.it/@rloterh/FlatWavyQuadrant#main.rb)
 - In terminal, with Ruby installed, navigate *bin* diractory and run **_ruby main.rb_**
-- Run executable terminal using command **_./main.rb_** 
+- Run bash executable in the terminal using command **_./main.rb_** 
 
 ## Built With
 
