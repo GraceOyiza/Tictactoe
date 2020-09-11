@@ -6,10 +6,10 @@ This game project is an implementation of a 3X3 grid Tic Tac Toe game for intere
 Tic tac toe is a 2 player game where the player X and O takes turns filling a 3 x 3 grid.
 Any of the players who first places 3 respective marks in a horizontal, vertical or diagonal manner wins the game.
 It's a draw when all the mark points on the board are full and none of the players is able to achieve the above mentioned
-3 respective marks on the board.
+3 respective marks on the board. Enjoy playing this game, and leave us a feedback!
 
 <p align="center">
-  <img width="230" height="150" src="https://d18l82el6cdm1i.cloudfront.net/uploads/jxT6rHpKRS-output_mdluzf.gif">
+  <img width="180" height="150" src="https://d18l82el6cdm1i.cloudfront.net/uploads/jxT6rHpKRS-output_mdluzf.gif">
 </p>
 
 
@@ -25,15 +25,16 @@ It's a draw when all the mark points on the board are full and none of the playe
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="800" alt="Welcome screen screenshot" src="assets/screenshot_1.jpg">  Welcome screen |  <img width="800" alt="Players introduction screenshot" src="assets/screenshot_2.jpg">Players Intro|<img width="800" alt="Game instructions screenshot" src="assets/screenshot_3.jpg"> Game instructions|
-|<img width="800" alt=" Player turn screenshot" src="assets/screenshot_4.jpg"> Player turn |  <img width="800" alt="Game scores" src="assets/screenshot_5.jpg"> Game conclusion|
+|<img width="800" alt=" Player turn screenshot" src="assets/screenshot_4.jpg"> Game conclusion |  <img width="800" alt="Game scores" src="assets/screenshot_5.jpg"> Game play|
 
 ## Getting Started
 - Run game using the demo link here
-  - In terminal, with Ruby installed, navigate bin diractory and run :=
+- In terminal, with Ruby installed, navigate *bin* diractory and run **_ruby main.rb_**
+- Run executable terminal using command **_./main.rb_** 
 
 ## Live Demo
 
-[Live Demo Link](https://repl.it/@Oyiza/LightheartedPleasantPlan#main.rb )
+[Live Demo Link](https://repl.it/@rloterh/FlatWavyQuadrant#main.rb)
 
 ## Built With
 
@@ -73,6 +74,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
+- Special thanks to [BRILLIANT](https://brilliant.org/) for using their Tictactoe animated gif image in our ReadMe
 - Hat tip to anyone whose code was used
 - Inspiration
 - etc
