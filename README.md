@@ -65,9 +65,6 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Special thanks to [BRILLIANT](https://brilliant.org/) for using their Tictactoe animated gif image in our ReadMe
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
