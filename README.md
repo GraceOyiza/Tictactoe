@@ -1,6 +1,6 @@
 # Tictactoe Game clone
 
-This game project is an implementation of a 3X3 grid Tic Tac Toe game for interecative console play, developed using Ruby language.
+This game project is an implementation of a 3X3 grid Tic Tac Toe game for interecative console play, developed using Ruby language. Checkout the demo game [here](https://repl.it/@rloterh/FlatWavyQuadrant#main.rb)
 
 ## Introduction
 Tic tac toe is a 2 player game where the player X and O takes turns filling a 3 x 3 grid.
@@ -28,25 +28,15 @@ It's a draw when all the mark points on the board are full and none of the playe
 |<img width="800" alt=" Player turn screenshot" src="assets/screenshot_4.jpg"> Game conclusion |  <img width="800" alt="Game scores" src="assets/screenshot_5.jpg"> Game play|
 
 ## Getting Started
-- Run game using the demo link here
+- Run game using the demo link [here](https://repl.it/@rloterh/FlatWavyQuadrant#main.rb)
 - In terminal, with Ruby installed, navigate *bin* diractory and run **_ruby main.rb_**
 - Run executable terminal using command **_./main.rb_** 
-
-## Live Demo
-
-[Live Demo Link](https://repl.it/@rloterh/FlatWavyQuadrant#main.rb)
 
 ## Built With
 
 - Ruby
 - Rubocop
 - rspec
-
-
-
-
-
-
 
 ## Authors
 
@@ -60,7 +50,7 @@ It's a draw when all the mark points on the board are full and none of the playe
 
 - Github: [@githubhandle](https://github.com/rloterh )
 - Twitter: [@twitterhandle](https://twitter.com/RLoterh )
-- Linkedin: [linkedin](https://www.linkedin.com/in/robert-loterh-30b265135/ )
+- Linkedin: [linkedin](https://www.linkedin.com/in/robert-loterh-30b265135/)
 
 ## 🤝 Contributing
 
