@@ -1,10 +1,39 @@
-# Tictactoe
+# Tictactoe Game clone
 
-> This is the Project setup structure for Tictactoe game clone
+This game project is an implementation of a 3X3 grid Tic Tac Toe game for interecative console play, developed using Ruby language.
+
+## Introduction
+Tic tac toe is a 2 player game where the player X and O takes turns filling a 3 x 3 grid.
+Any of the players who first places 3 respective marks in a horizontal, vertical or diagonal manner wins the game.
+It's a draw when all the mark points on the board are full and none of the players is able to achieve the above mentioned
+3 respective marks on the board.
+
+<p align="center">
+  <img width="230" height="150" src="https://d18l82el6cdm1i.cloudfront.net/uploads/jxT6rHpKRS-output_mdluzf.gif">
+</p>
 
 
+## Game Instructions
 
+- When game is run Welcome screen is shown. Press 'S' when you're ready to play
+- Player one and player two, enters names to get ready
+- Follow the play instructions: Choose a cell [1-9]on the board as indicated in the display.
+  - Each player chooses an emtpty cell on the board during his/turns.
+  - The player who's the first to align 3 respective cells on the board (horizontal,vertical or diagonal) is the winner.
+  - When cells on the board are full, and none of the 2 players fills 3 respective cells (horizontal,vertical or diagonal), it's a draw.
 
+| | | |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="800" alt="Welcome screen screenshot" src="assets/screenshot_1.jpg">  Welcome screen |  <img width="800" alt="Players introduction screenshot" src="assets/screenshot_2.jpg">Players Intro|<img width="800" alt="Game instructions screenshot" src="assets/screenshot_3.jpg"> Game instructions|
+|<img width="800" alt=" Player turn screenshot" src="assets/screenshot_4.jpg"> Player turn |  <img width="800" alt="Game scores" src="assets/screenshot_5.jpg"> Game conclusion|
+
+## Getting Started
+- Run game using the demo link here
+  - In terminal, with Ruby installed, navigate bin diractory and run :=
+
+## Live Demo
+
+[Live Demo Link](https://repl.it/@Oyiza/LightheartedPleasantPlan#main.rb )
 
 ## Built With
 
@@ -12,14 +41,10 @@
 - Rubocop
 - rspec
 
-## Live Demo
-
-[Live Demo Link](https://repl.it/@Oyiza/LightheartedPleasantPlan#main.rb )
 
 
-## Getting Started
 
-**You can use the live demo link to see the page**
+
 
 
 ## Authors
