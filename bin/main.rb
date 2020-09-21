@@ -1,2 +1,48 @@
 #!/usr/bin/env ruby
-puts 'Hello World'
+
+require_relative '../lib/board.rb'
+require_relative '../lib/game.rb'
+require_relative '../lib/player.rb'
+
+board_o = Board.new
+game_o = Game.new
+palyer_o = Player.new
+
+puts "\n\n"
+puts '           Welcome,  TiC TaC To\'eR!'
+puts ''
+board_o.display_demo_board
+puts ''
+sleep(1)
+puts "          Built by Robert and Grace\n\n\n"
+
+sleep(1)
+start_msg = "            Press \'S\' to start!"
+
+2.times do
+  print "\r#{start_msg}"
+  sleep 0.5
+  print "\r#{' ' * start_msg.size}"
+  sleep 0.5
+end
+
+print "\n"
+puts start_msg
+
+game_o.start_check
+
+palyer_o.check_player1_name
+palyer_o.check_player2_name
+
+palyer_o.ready_to_play
+
+sleep(1)
+puts "   Choose a cell (1-9) on the TicTacToe board!\n\n\n"
+sleep(1)
+board_o.display_numbered_board
+puts "\n\n"
+sleep(2)
+
+game_o.game_play
+
+game_o.declare_result
